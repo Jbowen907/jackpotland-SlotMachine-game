@@ -5,22 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Slot Machine Game</title>
     <link rel="stylesheet" href="/css/style.css">
-    <script src="/js/script.js"></script>
+    <script src="/js/script.js" defer></script>
 </head>
 <body>
     <div class="container">
         <h1>Slot Machine Game</h1>
+        <button id="paytable-button">Paytable</button>
         <div class="slot-machine">
-            <div class="reel" id="reel1">🍒</div>
-            <div class="reel" id="reel2">🍋</div>
-            <div class="reel" id="reel3">🍉</div>
+            <div class="reel" id="reel1" aria-label="Reel 1">🍒</div>
+            <div class="reel" id="reel2" aria-label="Reel 2">🍋</div>
+            <div class="reel" id="reel3" aria-label="Reel 3">🍉</div>
+        </div>
+        <div class="betting-buttons">
+            <button class="bet-button" data-bet="10">$10</button>
+            <button class="bet-button" data-bet="15">$15</button>
+            <button class="bet-button" data-bet="20">$20</button>
         </div>
         <button id="play-button">Play</button>
-        <div id="message"></div>
+        <div id="paytable" class="paytable">
+            <h2>Paytable</h2>
+            <ul>
+                <li>🍒 - Base: $10, Multiplied: $50</li>
+                <li>🍋 - Base: $15, Multiplied: $75</li>
+                <li>🍉 - Base: $20, Multiplied: $100</li>
+                <li>⭐ - Base: $25, Multiplied: $125</li>
+                <li>🍇 - Base: $30, Multiplied: $150</li>
+                <li>🍊 - Base: $35, Multiplied: $175</li>
+            </ul>
+        </div>
+        <div id="message" role="alert"></div>
         <div class="instructions">
             <h2>How to Play</h2>
-            <p>Press the "Play" button to spin the reels. Match all three symbols to win!</p>
+            <p>Press one of the betting buttons to choose your wager amount. <br>Then press the "Play" button to spin the reels. <br>Match all three symbols to win!</p>
         </div>
+        <div id="score" aria-live="polite"></div>
     </div>
 </body>
 </html>

@@ -1,6 +1,8 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-size: large;
+    background-color: #282c34;
+    color: #ffffff;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -10,21 +12,74 @@ body {
 
 .container {
     text-align: center;
-    background-color: white;
+    background-color: #3b3f4a;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    position: relative;
+}
+
+#paytable-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px 10px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+}
+
+#paytable-button:hover {
+    background-color: #0056b3;
 }
 
 .slot-machine {
     display: flex;
     justify-content: center;
     margin: 20px 0;
+    gap: 20px;
 }
 
 .reel {
     font-size: 50px;
     margin: 0 10px;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    color: #000000;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    animation: spin 0.5s ease-in-out;
+}
+
+@keyframes spin {
+    0% { transform: rotateX(0deg); }
+    100% { transform: rotateX(360deg); }
+}
+
+.betting-buttons {
+    margin: 20px 0;
+}
+
+.bet-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #28a745;
+    color: white;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.bet-button:hover {
+    background-color: #0056b3;
 }
 
 button {
@@ -35,6 +90,7 @@ button {
     background-color: #28a745;
     color: white;
     cursor: pointer;
+    margin-top: 10px;
 }
 
 button:hover {
@@ -52,4 +108,20 @@ button:hover {
 
 .instructions h2 {
     margin-bottom: 10px;
+}
+
+#score {
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+.paytable {
+    display: none;
+    background-color: #ffffff;
+    color: #000000;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    text-align: left;
 }
