@@ -3,6 +3,8 @@
 
 Game Name: Jackpotland
 
+https://github.com/Jbowen907/jackpotland-SlotMachine-game/blob/main/README.md
+
 Description: Jackpotland is a fun and exciting slot machine game that you can play directly in your browser. Spin the reels, place your bets, and try your luck to win big! The game is designed to be visually appealing and easy to play, making it perfect for anyone looking for a quick gaming fix.
 
 Background: I chose to create a slot machine game because of its significance to my life and how popular they are around the world. Slot machines are a staple in casinos around the world, and bringing this experience to the web allows for easy access and fun for everyone. This project also allowed me to showcase my skills in JavaScript, HTML, and CSS, while creating a visually engaging and interactive application. Additionally, my wife and I got married in Las Vegas, and it was her first time being there. She loved playing the slot machines with me, and building a slot machine game reminded me of those amazing memories and marrying the love of my life. So, it was a no-brainer to decide on this game to build.
