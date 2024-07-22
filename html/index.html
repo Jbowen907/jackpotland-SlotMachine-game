@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Slot Machine Game</title>
+    <title>Jackpotland</title>
     <link rel="stylesheet" href="/css/style.css">
     <script src="/js/script.js" defer></script>
 </head>
 <body>
     <div class="container">
-        <h1>Slot Machine Game</h1>
+        <h1>Jackpotland</h1>
         <button id="paytable-button">Paytable</button>
+        <button id="rules-button">Rules</button>
         <div class="slot-machine">
             <div class="reel" id="reel1" aria-label="Reel 1">🍒</div>
             <div class="reel" id="reel2" aria-label="Reel 2">🍋</div>
@@ -33,11 +34,11 @@
                 <li>🍊 - Base: $35, Multiplied: $175</li>
             </ul>
         </div>
-        <div id="message" role="alert"></div>
-        <div class="instructions">
+        <div id="rules" class="rules">
             <h2>How to Play</h2>
             <p>Press one of the betting buttons to choose your wager amount. <br>Then press the "Play" button to spin the reels. <br>Match all three symbols to win!</p>
         </div>
+        <div id="message" role="alert"></div>
         <div id="score" aria-live="polite"></div>
     </div>
 </body>

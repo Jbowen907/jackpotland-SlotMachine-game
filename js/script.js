@@ -3,9 +3,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const message = document.getElementById("message");
     const paytableButton = document.getElementById("paytable-button");
     const paytable = document.getElementById("paytable");
-    const scoreDisplay = document.createElement('div');
-    scoreDisplay.id = 'score';
-    message.after(scoreDisplay);
+    const rulesButton = document.getElementById("rules-button");
+    const rules = document.getElementById("rules");
+    const scoreDisplay = document.getElementById('score');
     let score = 100;
     let currentBet = 0;
     updateScore();
@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("reel2"),
         document.getElementById("reel3")
     ];
+
     const symbols = ["🍒", "🍋", "🍉", "⭐", "🍇", "🍊"];
     const baseScores = {
         "🍒": 10,
@@ -24,6 +25,23 @@ document.addEventListener("DOMContentLoaded", () => {
         "🍇": 30,
         "🍊": 35
     };
+
+    // Adjusted weights for symbols to achieve the desired winning probability
+    const weightedSymbols = [
+        "🍒", "🍋", "🍉", "⭐", "🍇", "🍊",
+        "🍒", "🍋", "🍉", "⭐", "🍇", "🍊",
+        "🍒", "🍋", "🍉", "⭐", "🍇", "🍊",
+        "🍒", "🍋", "🍉", "⭐", "🍇", "🍊",
+        "🍒", "🍋", "🍉", "⭐", "🍇", "🍊",
+        "🍒", "🍋", "🍉", "⭐", "🍇", "🍊",
+        "🍒", "🍋", "🍉", "⭐", "🍇", "🍊",
+        "🍒", "🍋", "🍉", "⭐", "🍇", "🍊",
+        "🍒", "🍋", "🍉", "⭐", "🍇", "🍊",
+        "🍒", "🍒", "🍒", "🍋", "🍋", "🍋",
+        "🍉", "🍉", "🍉", "🍒", "🍋", "🍉", 
+        "🍒", "🍋", "🍉"
+    ];
+
     const betButtons = document.querySelectorAll('.bet-button');
 
     betButtons.forEach(button => {
@@ -36,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
     playButton.addEventListener("click", () => {
         if (currentBet > 0) {
             if (score >= currentBet) {
-                score -= currentBet; 
+                score -= currentBet;
                 spinReels();
                 checkWin();
                 updateScore();
@@ -52,9 +70,13 @@ document.addEventListener("DOMContentLoaded", () => {
         paytable.style.display = paytable.style.display === "none" ? "block" : "none";
     });
 
+    rulesButton.addEventListener("click", () => {
+        rules.style.display = rules.style.display === "none" ? "block" : "none";
+    });
+
     function spinReels() {
         reels.forEach(reel => {
-            const randomSymbol = symbols[Math.floor(Math.random() * symbols.length)];
+            const randomSymbol = weightedSymbols[Math.floor(Math.random() * weightedSymbols.length)];
             reel.textContent = randomSymbol;
             reel.style.animation = 'none';
             requestAnimationFrame(() => {
@@ -69,7 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const reel3 = reels[2].textContent;
 
         if (reel1 === reel2 && reel2 === reel3) {
-            score += baseScores[reel1] * 5; 
+            score += baseScores[reel1] * 5;
             displayMessage("You Win!");
         } else {
             displayMessage("You Lose. Try Again!");
@@ -81,6 +103,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function updateScore() {
-        scoreDisplay.textContent = `Balance: $${score.toFixed(2)}`;
+        if (scoreDisplay) {
+            scoreDisplay.textContent = `Balance: $${score.toFixed(2)}`;
+        }
     }
 });
